@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/utils/constant.dart';
+import 'package:e_commerce/feature/cart/presentation/view/cart_view.dart';
 import 'package:e_commerce/feature/search/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class TextAndTextFieldSection extends StatelessWidget {
             Expanded(
               child: InkWell(
                 onTap: (){
-                  navigateTo(context,  SearchView());
+                  navigateTo(context,  const SearchView());
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -61,19 +62,24 @@ class TextAndTextFieldSection extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Container(
-              width: 55,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 10
-              ),
-              height: 55,
-              decoration: BoxDecoration(
-                  color: Colors.blueGrey.shade700,
-                  borderRadius: BorderRadius.circular(16)
-              ),
-              child: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.grey.shade400,
+            InkWell(
+              onTap: (){
+                navigateTo(context,  const CartView());
+              },
+              child: Container(
+                width: 55,
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 10
+                ),
+                height: 55,
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey.shade700,
+                    borderRadius: BorderRadius.circular(16)
+                ),
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Colors.grey.shade400,
+                ),
               ),
             )
           ],
