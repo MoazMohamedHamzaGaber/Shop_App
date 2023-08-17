@@ -62,6 +62,7 @@ Widget buildMaterialButton({
    double? width,
    double? height,
    Function()? function,
+  IconData? iconData,
 })=>Container(
   width: width,
   height: height,
@@ -71,13 +72,20 @@ Widget buildMaterialButton({
   ),
   child: MaterialButton(
     onPressed: function,
-    child:  Text(
-      text,
-      style:const TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
+    child:  Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(iconData,color: Colors.white,size: 25,),
+        const SizedBox(width: 5,),
+        Text(
+          text,
+          style:const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     ),
   ),
 );

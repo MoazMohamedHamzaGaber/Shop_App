@@ -13,7 +13,11 @@ class CategoryView extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kPrimaryColor,
-        title: const Text('Categories'),
+        title: const Text('Categories',
+        style: TextStyle(
+          fontSize: 25,
+        ),
+        ),
       ),
       body: const CategoryViewBody(),
     );

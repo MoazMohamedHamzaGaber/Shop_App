@@ -3,6 +3,7 @@ import 'package:e_commerce/feature/Home/presentation/manage/cubit/home_states.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/constant.dart';
+import '../../../data/model/home_model.dart';
 import 'details_image.dart';
 import 'information_detials.dart';
 
@@ -16,7 +17,6 @@ class DetailsViewBody extends StatelessWidget {
       required this.discount,  this.images,this.image, required this.id})
       : super(key: key);
 
-  //final Products model;
   final String name;
   final dynamic price;
   final dynamic oldPrice;
@@ -44,6 +44,22 @@ class DetailsViewBody extends StatelessWidget {
             );
           }
         }
+
+        if(state is ChangeCartSuccessStates)
+        {
+          if(state.changeCartModel.status!) {
+            showToast(
+              text: state.changeCartModel.message!,
+              color: Colors.green,
+            );
+          }
+          else{
+            showToast(
+              text: state.changeCartModel.message!,
+              color: Colors.red,
+            );
+          }
+        }
       },
       builder: (BuildContext context, Object? state) {
         return Column(
@@ -59,6 +75,7 @@ class DetailsViewBody extends StatelessWidget {
               oldPrice: oldPrice,
               description: description,
               discount: discount,
+              id: id,
             ),
           ],
         );

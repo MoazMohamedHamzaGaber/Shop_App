@@ -2,6 +2,7 @@ import 'package:e_commerce/core/utils/api_service.dart';
 import 'package:e_commerce/core/utils/shared_preference.dart';
 import 'package:e_commerce/feature/Home/presentation/manage/cubit/home_cubit.dart';
 import 'package:e_commerce/feature/On_Boarding/presentation/manage/cubit/on_boarding_cubit.dart';
+import 'package:e_commerce/feature/cart/presentation/manage/cubit/cart_cubit.dart';
 import 'package:e_commerce/feature/category/presentation/manage/cubit/home_cubit.dart';
 import 'package:e_commerce/feature/favorite/presentation/manage/cubit/favorite_cubit.dart';
 import 'package:e_commerce/feature/layout/presentation/manage/cubit/Layout_cubit.dart';
@@ -79,6 +80,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context)=>FavoriteCubit()..getFavorite(),
+        ),
+        BlocProvider(
+          create: (context)=>CartCubit()..getCart(),
         ),
       ],
       child: MaterialApp(

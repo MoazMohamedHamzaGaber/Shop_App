@@ -10,7 +10,15 @@ class FavoriteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
-      appBar: appBar(text: 'Favorite'),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: kPrimaryColor,
+        title: const Text('Favorites',
+        style: TextStyle(
+          fontSize: 25,
+        ),
+        ),
+      ),
       body: const FavoriteViewBody(),
     );
   }
