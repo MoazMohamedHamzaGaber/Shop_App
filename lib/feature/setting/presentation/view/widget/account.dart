@@ -25,7 +25,7 @@ class Account extends StatelessWidget {
             },
             child: Row(
               children:  [
-                if(SettingCubit().get(context).profileModel !=null)
+                //if(SettingCubit().get(context).profileModel !=null)
                   const CircleAvatar(
                   radius: 30,
                   backgroundImage:

@@ -11,17 +11,10 @@ class TextFieldView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SettingCubit, SettingStates>(
-      listener: (BuildContext context, state) {},
+
+    return BlocConsumer<SettingCubit,SettingStates>(
+      listener: (BuildContext context, state) {  },
       builder: (BuildContext context, Object? state) {
-        var cubit = SettingCubit().get(context).profileModel;
-        //token=cubit!.data!.token;
-        //if(cubit !=null)
-          //{
-            profileNameController.text=cubit!.data!.name!;
-            profileEmailController.text=cubit.data!.email!;
-            profilePhoneController.text=cubit.data!.phone!;
-          //}
         return Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(

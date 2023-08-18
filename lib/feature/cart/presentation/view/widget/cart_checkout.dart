@@ -27,12 +27,13 @@ class CartCheckout extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${CartCubit.get(context).cartModel!.data!.total!.round()} EGP',
-                    //'${CartCubit.get(context).cartModel!.data!.total!.round() * CartCubit.get(context).cartModel!.data!.cartItems![0].quantity!} EGP',
+                    //'${CartCubit.get(context).cartModel!.data!.total!.round()} EGP',
+                    '${CartCubit.get(context).cartModel!.data!.total!.round() * CartCubit.get(context).cartModel!.data!.cartItems![0].quantity!} EGP',
                     style: const TextStyle(
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
-                        fontSize: 18),
+                        fontSize: 18,
+                    ),
                   )
                 ],
               ),
