@@ -61,7 +61,7 @@ class SettingCubit extends Cubit<SettingStates>
   required String name,
     required String email,
     required String phone,
-    required String image,
+   // required String image,
 })
   {
     ApiService.putData(
@@ -71,7 +71,7 @@ class SettingCubit extends Cubit<SettingStates>
           'name':name,
         'email':email,
         'phone':phone,
-        'image':image,
+        //'image':image,
       },
     ).then((value)
     {
