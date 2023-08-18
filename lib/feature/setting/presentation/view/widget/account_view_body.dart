@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/constant.dart';
 import '../../manage/cubit/setting_cubit.dart';
 import 'account_image_and_text.dart';
-import 'button.dart';
+import 'button_section.dart';
 
 class AccountViewBody extends StatelessWidget {
    const AccountViewBody({Key? key}) : super(key: key);
@@ -34,31 +34,19 @@ class AccountViewBody extends StatelessWidget {
           }
       },
       builder: (BuildContext context, Object? state) {
-        var cubit = SettingCubit().get(context).profileModel;
-        if(cubit !=null)
-        {
-          profileNameController.text=cubit.data!.name!;
-          profileEmailController.text=cubit.data!.email!;
-          profilePhoneController.text=cubit.data!.phone!;
-        }
-        //if(SettingCubit().get(context).profileModel !=null) {
           return ConditionalBuilder(
             condition: SettingCubit().get(context).profileModel !=null,
-            builder: (BuildContext context) =>SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+            builder: (BuildContext context) =>const SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
-                children:  const [
+                children:  [
                   AccountImageAndTextSection(),
                   TextFieldView(),
-                  AccountButtonView(),
+                  AccountButtonViewSection(),
                 ],
               ),
             ), fallback: (BuildContext context)=>const Center(child: CircularProgressIndicator()),
           );
-        //}
-        // else{
-        //   return const Center(child: CircularProgressIndicator());
-        // }
       },
     );
   }
