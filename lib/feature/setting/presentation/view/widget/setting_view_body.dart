@@ -1,4 +1,5 @@
 import 'package:e_commerce/feature/setting/presentation/view/change_password_view.dart';
+import 'package:e_commerce/feature/setting/presentation/view/complaints_view.dart';
 import 'package:e_commerce/feature/setting/presentation/view/widget/account.dart';
 import 'package:flutter/material.dart';
 
@@ -64,6 +65,13 @@ class SettingViewBody extends StatelessWidget {
               },
               text: 'Change Password',
               icon: Icons.password,
+            ),
+            SettingItem(
+              function: () {
+                navigateTo(context, const ComplaintsView());
+              },
+              text: 'Add Complaints',
+              icon: Icons.message,
             ),
             SettingItem(
               function: () {

@@ -23,3 +23,6 @@ Widget textFormField({
             ),
           )),
     );
+
+
+Widget customLoadingView()=>const Center(child: CircularProgressIndicator());

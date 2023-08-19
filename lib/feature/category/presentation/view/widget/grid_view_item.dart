@@ -1,7 +1,9 @@
 import 'package:e_commerce/feature/category/data/model/category_model.dart';
+import 'package:e_commerce/feature/category/data/model/details_category_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/constant.dart';
+import '../details_view.dart';
 
 class GridViewItem extends StatelessWidget {
   const GridViewItem({Key? key, required this.model}) : super(key: key);
@@ -11,7 +13,45 @@ class GridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        //navigateTo(context,  DetailsView(model: model,));
+        if(model.name =='electrionic devices') {
+          navigateTo(context,   CategoryDetailsView(
+              model: DetailsCategoryModel.electronicModel,
+            text: 'electrionic devices',
+          ),
+        );
+        }
+        if(model.name =='Clothes') {
+          navigateTo(context,
+            CategoryDetailsView(
+                model: DetailsCategoryModel.clothesModel,
+              text: 'Clothes',
+            ),
+          );
+        }
+        if(model.name =='sports') {
+          navigateTo(context,
+            CategoryDetailsView(
+              model: DetailsCategoryModel.sportsModel,
+              text: 'Sports',
+            ),
+          );
+        }
+        if(model.name =='Lighting') {
+          navigateTo(context,
+            CategoryDetailsView(
+              model: DetailsCategoryModel.lightingModel,
+              text: 'Lighting',
+            ),
+          );
+        }
+        if(model.name =='Prevent Corona') {
+          navigateTo(context,
+            CategoryDetailsView(
+              model: DetailsCategoryModel.coronaModel,
+              text: 'Prevent Corona',
+            ),
+          );
+        }
       },
       child: Stack(
         children: [

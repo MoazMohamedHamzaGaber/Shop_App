@@ -20,7 +20,7 @@ class TextFieldView extends StatelessWidget {
           child: Column(
             children: [
               textFormField(
-                text: 'name',
+                text: 'Name',
                 type: TextInputType.name,
                 controller: profileNameController,
               ),
@@ -28,7 +28,7 @@ class TextFieldView extends StatelessWidget {
                 height: 20,
               ),
               textFormField(
-                text: 'email',
+                text: 'Email',
                 type: TextInputType.emailAddress,
                 controller: profileEmailController,
               ),
