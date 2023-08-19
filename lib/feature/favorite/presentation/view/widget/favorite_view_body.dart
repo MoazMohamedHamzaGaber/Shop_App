@@ -13,12 +13,14 @@ class FavoriteViewBody extends StatelessWidget {
     return BlocConsumer<FavoriteCubit, FavoriteStates>(
         listener: (BuildContext context, state) {},
         builder: (BuildContext context, Object? state) {
-            return ConditionalBuilder(
-            condition: state is! FavoriteLoadingStates,
-            builder: (context) => const FavoriteListView(),
-            fallback: (context) =>
-            const Center(child: CircularProgressIndicator()),
-          );
+            return Padding(
+              padding: const EdgeInsets.all(20),
+              child: ConditionalBuilder(
+                condition: state is! FavoriteLoadingStates,
+                builder: (BuildContext context)=>const FavoriteListView(),
+                fallback: (BuildContext context)=>const Center(child: CircularProgressIndicator()),
+              ),
+            );
         }
         );
   }

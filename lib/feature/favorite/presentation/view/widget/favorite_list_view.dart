@@ -19,23 +19,25 @@ class FavoriteListView extends StatelessWidget {
             .data!
             .data!
             .isNotEmpty) {
-          return ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => ListViewItem(
-                model: FavoriteCubit()
-                    .get(context)
-                    .favoriteModel!
-                    .data!
-                    .data![index]),
-            itemCount:
-                FavoriteCubit().get(context).favoriteModel!.data!.data!.length,
+          return GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            clipBehavior: Clip.none,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1 / 1.36,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
+            ),
+            itemBuilder: (BuildContext context, int index)=> ListViewItem(model: FavoriteCubit().get(context).favoriteModel!.data!.data![index]),
+            itemCount: FavoriteCubit().get(context).favoriteModel!.data!.data!.length,
           );
         }
-        return Padding(
-          padding: const EdgeInsets.all(12.0),
+        return const Padding(
+          padding: EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Card(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Image(
