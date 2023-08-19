@@ -28,9 +28,7 @@ class Account extends StatelessWidget {
                 //if(SettingCubit().get(context).profileModel !=null)
                   const CircleAvatar(
                   radius: 30,
-                  backgroundImage:
-                  NetworkImage(
-                    'https://scontent.fcai19-3.fna.fbcdn.net/v/t39.30808-6/273025292_1139535833249199_6564232445671122117_n.jpg?_nc_cat=101&cb=99be929b-59f725be&ccb=1-7&_nc_sid=e3f864&_nc_ohc=qrWzG-2JtMUAX_5JD5c&_nc_ht=scontent.fcai19-3.fna&oh=00_AfCwiZ8UL_uxYi2ZwBkBHTntBrYlpWDrj62rNU0NIx9Z_w&oe=64D6FDBE'
+                  backgroundImage: NetworkImage('https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg'
                   ),
                 ),
                 const SizedBox(
