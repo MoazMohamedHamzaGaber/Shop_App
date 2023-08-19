@@ -72,20 +72,13 @@ Widget buildMaterialButton({
   ),
   child: MaterialButton(
     onPressed: function,
-    child:  Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(iconData,color: Colors.white,size: 25,),
-        const SizedBox(width: 5,),
-        Text(
-          text,
-          style:const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+    child:  Text(
+      text,
+      style:const TextStyle(
+        color: Colors.white,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   ),
 );
