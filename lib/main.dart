@@ -10,6 +10,7 @@ import 'package:e_commerce/feature/layout/presentation/view/layout_view.dart';
 import 'package:e_commerce/feature/login/presentation/manage/cubit/login_cubit.dart';
 import 'package:e_commerce/feature/register/presentation/manage/cubit/register_cubit.dart';
 import 'package:e_commerce/feature/search/presentation/manage/cubit/search_cubit.dart';
+import 'package:e_commerce/feature/setting/presentation/manage/Complaints%20Cubit/complaints_cubit.dart';
 import 'package:e_commerce/feature/setting/presentation/manage/cubit/setting_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,6 +84,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context)=>CartCubit()..getCart(),
+        ),
+        BlocProvider(
+          create: (context)=>ComplaintsCubit(),
         ),
       ],
       child: MaterialApp(
