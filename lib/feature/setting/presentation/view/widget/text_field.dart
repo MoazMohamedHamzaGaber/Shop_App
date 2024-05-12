@@ -7,7 +7,7 @@ import '../../../../../core/utils/components.dart';
 import '../../../../../core/utils/constant.dart';
 
 class TextFieldView extends StatelessWidget {
-    const TextFieldView({Key? key,}) : super(key: key);
+  const TextFieldView({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +15,13 @@ class TextFieldView extends StatelessWidget {
     return BlocConsumer<SettingCubit,SettingStates>(
       listener: (BuildContext context, state) {  },
       builder: (BuildContext context, Object? state) {
+        var cubit = SettingCubit().get(context).profileModel;
+        if(cubit !=null)
+        {
+          profileNameController.text = cubit.data!.name!;
+          profileEmailController.text = cubit.data!.email!;
+          profilePhoneController.text = cubit.data!.phone!;
+        }
         return Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(

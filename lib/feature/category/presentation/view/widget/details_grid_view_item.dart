@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/animated.dart';
 import '../../../../../core/utils/constant.dart';
+import '../../../../Home/presentation/view/details_view.dart';
 import '../../../data/model/details_category_model.dart';
 
 class DetailsGridViewItem extends StatelessWidget {
@@ -11,7 +13,17 @@ class DetailsGridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(AnimationsRoute(page: DetailsView(
+          name: model.name,
+          price: model.price,
+          oldPrice: model.oldPrice,
+          description: model.desc,
+          discount: model.discount,
+          id: 53,
+          image: model.image,
+        )));
+      },
       child: Stack(
         children: [
           Container(
@@ -48,7 +60,7 @@ class DetailsGridViewItem extends StatelessWidget {
                         width: 180,
                         child: Text(
                           model.name,
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 18,

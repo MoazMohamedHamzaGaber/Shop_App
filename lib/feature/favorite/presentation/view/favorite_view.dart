@@ -16,6 +16,7 @@ class FavoriteView extends StatelessWidget {
         title: const Text('Favorites',
         style: TextStyle(
           fontSize: 25,
+          color: Colors.white,
         ),
         ),
       ),

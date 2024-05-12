@@ -3,7 +3,7 @@ import 'package:e_commerce/feature/search/data/model/search_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/constant.dart';
+import '../../../../../core/utils/animated.dart';
 import '../../../../Home/presentation/manage/cubit/home_cubit.dart';
 import '../../../../Home/presentation/view/details_view.dart';
 
@@ -20,15 +20,14 @@ class BuildItemListView extends StatelessWidget {
       builder: (BuildContext context, Object? state) {
         return InkWell(
           onTap: (){
-            navigateTo(context, DetailsView(name: model.name!,
+            Navigator.of(context).push(AnimationsRoute(page: DetailsView(name: model.name!,
               price: model.price,
               oldPrice: model.oldPrice,
               description: model.description!,
               discount: model.discount,
               images: model.images,
               id: model.id!,
-            ),
-            );
+            )));
           },
           child: Padding(
             padding: const EdgeInsets.only(

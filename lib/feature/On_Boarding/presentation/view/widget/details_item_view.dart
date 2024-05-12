@@ -97,7 +97,7 @@ class DetailsItemView extends StatelessWidget {
                           );
                         },
                         backgroundColor: Colors.black,
-                        child: const Icon(Icons.arrow_forward_ios_rounded),
+                        child: const Icon(Icons.arrow_forward_ios_rounded,color: Colors.white,),
                       ),
                     ),
                   ],

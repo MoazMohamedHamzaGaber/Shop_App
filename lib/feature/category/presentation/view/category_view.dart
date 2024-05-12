@@ -16,6 +16,7 @@ class CategoryView extends StatelessWidget {
         title: const Text('Categories',
         style: TextStyle(
           fontSize: 25,
+          color: Colors.white
         ),
         ),
       ),

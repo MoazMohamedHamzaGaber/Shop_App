@@ -6,8 +6,10 @@ import 'package:e_commerce/feature/register/presentation/view/widget/text_view.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/components.dart';
 import '../../../../../core/utils/constant.dart';
 import 'button_view.dart';
+import 'verified_screen.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({Key? key}) : super(key: key);
@@ -22,79 +24,96 @@ class RegisterViewBody extends StatelessWidget {
               {
                 print(state.registerModel.message);
                 print(state.registerModel.data!.token);
-                showToast(
-                  text: state.registerModel.message!,
-                  color: Colors.green,
-                );
+                showToast(text: state.registerModel.message!, color: Colors.green);
+
+                navigateAndFinish(context, const SignUpSuccess());
+                clear();
               }
             else{
-              showToast(
-                text: state.registerModel.message!,
-                color: Colors.red,
+              Navigator.pop(context);
+              buildShowDialog(
+                context: context,
+                image: 'assets/images/warning.png',
+                name: state.registerModel.message!,
+                function: (){
+                  Navigator.pop(context);
+                },
               );
             }
           }
       },
       builder: (BuildContext context, Object? state) {
-        return Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: CustomScrollView(
-            physics: const BouncingScrollPhysics(),
-            slivers: [
-              SliverFillRemaining(
-                hasScrollBody: false,
-                child:  Column(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          TextView(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          TextFieldSection(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          ButtonView(),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Already have an account?',
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child:  Column(
+                    children: [
+                      const Expanded(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 30,
+                            ),
+                            TextView(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            TextFieldSection(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            ButtonView(),
+                          ],
                         ),
-                        TextButton(
-                          onPressed: () {
-                            navigateTo(
-                              context,
-                              const LoginView(),
-                            );
-                          },
-                          child: const Text(
-                            'Login here',
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Already have an account?',
                             style: TextStyle(
                               fontSize: 16,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                  ],
+                          TextButton(
+                            onPressed: () {
+                              navigateTo(
+                                context,
+                                const LoginView(),
+                              );
+                            },
+                            child: const Text(
+                              'Login here',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
     );
   }
+}
+void clear(){
+  registerNameController.clear();
+  registerEmailController.clear();
+  registerPhoneController.clear();
+  registerPasswordController.clear();
+  registerConfirmPasswordController.clear();
 }

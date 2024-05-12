@@ -4,6 +4,7 @@ import 'package:e_commerce/feature/search/presentation/manage/cubit/search_state
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/errors/custom_error.dart';
 import 'build_Item_list_view.dart';
 
 class ListViewSection extends StatelessWidget {
@@ -15,18 +16,9 @@ class ListViewSection extends StatelessWidget {
       listener: (BuildContext context, state) {},
       builder: (BuildContext context, Object? state) {
         var cubit = SearchCubit().get(context);
-        if (state is SearchLoadingStates) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 20,
-            ),
-            child: LinearProgressIndicator(),
-          );
-        }
         if(searchController.text =='')
         {
-          return   const Text('');
+          return Container();
         }
         if (state is SearchSuccessStates) {
           return Expanded(
@@ -39,11 +31,22 @@ class ListViewSection extends StatelessWidget {
             ),
           );
         }
+        else if (state is SearchErrorStates) {
+          return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 30
+                ),
+                child: CustomError(text: state.error),
+              ));
+        }
         else {
-          return const Center(
-            child: Image(
-                image: AssetImage('assets/images/954591.png'),
+          return const Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20,
             ),
+            child: LinearProgressIndicator(),
           );
         }
       },

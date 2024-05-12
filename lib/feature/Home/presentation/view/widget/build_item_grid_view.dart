@@ -1,7 +1,11 @@
+import 'package:e_commerce/core/utils/animated.dart';
 import 'package:e_commerce/feature/Home/data/model/home_model.dart';
 import 'package:e_commerce/feature/Home/presentation/manage/cubit/home_cubit.dart';
+import 'package:e_commerce/feature/Home/presentation/manage/cubit/home_states.dart';
 import 'package:e_commerce/feature/Home/presentation/view/details_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constant.dart';
 
@@ -14,15 +18,15 @@ class BuildItemGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        navigateTo(context, DetailsView(name: model.name,
-            price: model.price,
-            oldPrice: model.oldPrice,
-            description: model.description,
-            discount: model.discount,
-            images: model.images!,
+        Navigator.of(context).push(AnimationsRoute(page: DetailsView(
+          name: model.name,
+          price: model.price,
+          oldPrice: model.oldPrice,
+          description: model.description,
+          discount: model.discount,
+          images: model.images!,
           id: model.id!,
-        ),
-        );
+        )));
       },
       child: Stack(
         children: [
@@ -60,7 +64,7 @@ class BuildItemGridView extends StatelessWidget {
                         width: 180,
                         child: Text(
                           '${model.name}',
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 18,
@@ -83,7 +87,7 @@ class BuildItemGridView extends StatelessWidget {
                           const SizedBox(
                             width: 15,
                           ),
-                          if(model.discount != 0)
+                          if (model.discount != 0)
                             Text(
                               '${model.oldPrice.round()}',
                               style: const TextStyle(
@@ -100,18 +104,18 @@ class BuildItemGridView extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  HomeCubit().get(context).changeFavorites(
-                      context: context, productId: model.id);
+                  HomeCubit()
+                      .get(context)
+                      .changeFavorites(context: context, productId: model.id);
                   print(model.id);
                 },
                 icon: Icon(
-                  HomeCubit()
-                      .get(context)
-                      .favorites[model.id]! ? Icons.favorite : Icons
-                      .favorite_border,
-                  color: HomeCubit()
-                      .get(context)
-                      .favorites[model.id]! ? Colors.blue : Colors.grey,
+                  HomeCubit().get(context).favorites[model.id]!
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                  color: HomeCubit().get(context).favorites[model.id]!
+                      ? Colors.blue
+                      : Colors.grey,
                 ),
               ),
             ],

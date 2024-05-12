@@ -7,19 +7,9 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_sharp,color: Colors.black,size: 30,),
-        ),
-      ),
-      body: const RegisterViewBody(),
+      body: RegisterViewBody(),
     );
   }
 }

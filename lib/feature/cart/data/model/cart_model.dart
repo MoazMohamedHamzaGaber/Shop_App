@@ -24,8 +24,8 @@ class CartModel {
 
 class Data {
   List<CartItems>? cartItems;
-  int? subTotal;
-  int? total;
+  dynamic subTotal;
+  dynamic total;
 
   Data({this.cartItems, this.subTotal, this.total});
 
@@ -78,9 +78,9 @@ class CartItems {
 
 class Product {
   int? id;
-  int? price;
-  int? oldPrice;
-  int? discount;
+  dynamic price;
+  dynamic oldPrice;
+  dynamic discount;
   String? image;
   String? name;
   String? description;

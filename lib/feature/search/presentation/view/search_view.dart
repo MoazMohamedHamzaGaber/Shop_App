@@ -10,9 +10,21 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
-      appBar: appBar(
-        context: context,
-          text: 'Search',
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: kPrimaryColor,
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+            searchController.clear();
+          },
+          icon: const Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
+        ),
+        title: const Text('Search',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body:  const SearchViewBody(),
     );

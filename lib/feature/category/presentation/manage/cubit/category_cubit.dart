@@ -3,7 +3,7 @@ import 'package:e_commerce/feature/category/data/model/category_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constant.dart';
-import 'home_states.dart';
+import 'category_states.dart';
 
 class CategoryCubit extends Cubit<CategoryStates>
 {

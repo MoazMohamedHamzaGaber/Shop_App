@@ -73,16 +73,16 @@ class InformationDetails extends StatelessWidget {
                                 const SizedBox(
                                   width: 20,
                                 ),
-                                if (discount != null)
-                                  Text(
-                                    '${oldPrice.round()} \$',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.blue.shade200,
-                                      decoration: TextDecoration.lineThrough,
-                                    ),
-                                  ),
+                                // if (discount != null)
+                                //   Text(
+                                //     '${oldPrice.round()} \$',
+                                //     style: TextStyle(
+                                //       fontSize: 20,
+                                //       fontWeight: FontWeight.w500,
+                                //       color: Colors.blue.shade200,
+                                //       decoration: TextDecoration.lineThrough,
+                                //     ),
+                                //   ),
                                 const Spacer(),
                                 Container(
                                   height: 40,

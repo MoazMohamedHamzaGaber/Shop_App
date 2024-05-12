@@ -4,7 +4,6 @@ import 'package:e_commerce/feature/setting/data/model/change_pass_model.dart';
 import 'package:e_commerce/feature/setting/data/model/contact_model.dart';
 import 'package:e_commerce/feature/setting/data/model/notification_model.dart';
 import 'package:e_commerce/feature/setting/data/model/profile_model.dart';
-import 'package:e_commerce/feature/setting/data/model/update_profile_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constant.dart';
@@ -21,7 +20,7 @@ class SettingCubit extends Cubit<SettingStates>
     emit(NotificationLoadingStates());
     ApiService.getData(
         url: 'notifications',
-      token: token
+        token: token
     ).then((value)
     {
       notificationModel=NotificationModel.fromJson(value.data);
@@ -56,28 +55,27 @@ class SettingCubit extends Cubit<SettingStates>
     );
   }
 
-  UpdateProfileModel? updateProfileModel;
   void updateProfile({
-  required String name,
+    required String name,
     required String email,
     required String phone,
-   // required String image,
-})
+    // required String image,
+  })
   {
+    emit(UpdateProfileLoadingStates());
     ApiService.putData(
-        url: 'update-profile',
-        token: token,
+      url: 'update-profile',
+      token: token,
       data: {
-          'name':name,
+        'name':name,
         'email':email,
         'phone':phone,
         //'image':image,
       },
     ).then((value)
     {
-      emit(UpdateProfileLoadingStates());
-      updateProfileModel=UpdateProfileModel.fromJson(value.data);
-      emit(UpdateProfileSuccessStates(updateProfileModel!));
+      profileModel=ProfileModel.fromJson(value.data);
+      emit(UpdateProfileSuccessStates(profileModel!));
     }
     ).catchError((error)
     {
@@ -92,8 +90,8 @@ class SettingCubit extends Cubit<SettingStates>
   {
     emit(AboutUsLoadingStates());
     ApiService.getData(
-        url: 'settings',
-        token: token,
+      url: 'settings',
+      token: token,
     ).then((value)
     {
       aboutUsModel=AboutUsModel.fromJson(value.data);
@@ -129,17 +127,17 @@ class SettingCubit extends Cubit<SettingStates>
 
   ChangePasswordModel? changePasswordModel;
   void changePassword({
-  required String current_password,
-  required String new_password,
-})
+    required String current_password,
+    required String new_password,
+  })
   {
     emit(ChangePasswordLoadingStates());
     ApiService.postData(
-        url: 'change-password',
-        token: token,
+      url: 'change-password',
+      token: token,
       data: {
-          'current_password':current_password,
-          'new_password':new_password,
+        'current_password':current_password,
+        'new_password':new_password,
       },
     ).then((value)
     {

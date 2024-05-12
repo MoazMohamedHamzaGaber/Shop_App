@@ -4,7 +4,7 @@ class DetailsCategoryModel
   late double price;
   late String image;
   double oldPrice=0;
-  String desc='MOAjmxodjzjdo';
+  String desc='JBL Charge 5 - Portable Bluetooth Speaker with deep bass, IP67 waterproof and dustproof, 20 hours of playtime, built-in powerbank, in black';
   double discount=0;
   //int id=50;
 
@@ -12,8 +12,8 @@ class DetailsCategoryModel
     required this.name,
     required this.price,
     required this.image,
-    //required this.oldPrice,
-    //required this.desc,
+    // this.oldPrice,
+    // this.desc,
 });
 
   static List<DetailsCategoryModel>electronicModel=[

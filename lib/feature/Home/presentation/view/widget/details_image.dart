@@ -1,10 +1,11 @@
 import 'package:e_commerce/core/utils/constant.dart';
+import 'package:e_commerce/feature/Home/data/model/home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'details_app_bar.dart';
 
 class DetailsImage extends StatelessWidget {
-  DetailsImage({Key? key, this.images, this.image, required this.id}) : super(key: key);
+  DetailsImage({Key? key, this.images, this.image, required this.id,}) : super(key: key);
 
   List<String>? images;
   String? image;

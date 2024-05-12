@@ -15,7 +15,7 @@ class AccountImageAndTextSection extends StatelessWidget {
       child: Center(
         child: Column(
           children:  [
-              CircleAvatar(
+            CircleAvatar(
               radius: 52,
               backgroundColor: Colors.white,
               child: CircleAvatar(

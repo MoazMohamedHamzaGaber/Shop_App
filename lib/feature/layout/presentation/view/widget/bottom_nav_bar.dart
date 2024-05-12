@@ -4,9 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../manage/cubit/Layout_cubit.dart';
 import '../../manage/cubit/Layout_states.dart';
 
-class BottomNavBar extends StatelessWidget {
-   BottomNavBar({Key? key}) : super(key: key);
+class BottomNavBar extends StatefulWidget {
+   const BottomNavBar({Key? key}) : super(key: key);
 
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -58,6 +63,7 @@ class BottomNavBar extends StatelessWidget {
       },
     );
   }
+
   List<IconData> listOfIcons = [
     Icons.home_rounded,
     Icons.category_rounded,

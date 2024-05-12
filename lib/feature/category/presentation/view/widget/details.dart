@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/utils/constant.dart';
+import 'package:e_commerce/feature/Home/presentation/view/details_view.dart';
 import 'package:e_commerce/feature/category/data/model/details_category_model.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +8,8 @@ import 'details_grid_view_item.dart';
 class CategoryDetailsViewBody extends StatelessWidget {
   const CategoryDetailsViewBody({super.key, required this.model});
 
+  final List<DetailsCategoryModel> model;
 
-   final List<DetailsCategoryModel>model;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -25,11 +27,9 @@ class CategoryDetailsViewBody extends StatelessWidget {
           mainAxisSpacing: 15,
           crossAxisSpacing: 15,
         ),
-        itemBuilder: (BuildContext context, int index) =>
-            DetailsGridViewItem(model:model[index]),
+        itemBuilder: (BuildContext context, int index) => DetailsGridViewItem(model: model[index]),
         itemCount: model.length,
       ),
     );
   }
-
 }

@@ -1,8 +1,6 @@
 import 'package:e_commerce/feature/setting/data/model/change_pass_model.dart';
 import 'package:e_commerce/feature/setting/data/model/profile_model.dart';
 
-import '../../../data/model/update_profile_model.dart';
-
 abstract class SettingStates{}
 
 class SettingInitialStates extends SettingStates{}
@@ -32,9 +30,10 @@ class ProfileErrorStates extends SettingStates{
 }
 
 class UpdateProfileSuccessStates extends SettingStates{
-  final UpdateProfileModel updateProfileModel;
+  final ProfileModel profileModel;
 
-  UpdateProfileSuccessStates(this.updateProfileModel);
+  UpdateProfileSuccessStates(this.profileModel);
+
 
 }
 

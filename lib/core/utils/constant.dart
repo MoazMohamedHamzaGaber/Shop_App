@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -90,7 +92,7 @@ void showToast({
   msg: text,
   toastLength: Toast.LENGTH_LONG,
   gravity: ToastGravity.BOTTOM,
-  timeInSecForIosWeb: 5,
+  timeInSecForIosWeb: 3,
   backgroundColor: color,
   textColor: Colors.white,
   fontSize: 16.0,
@@ -106,9 +108,13 @@ AppBar appBar({
       onPressed: (){
         Navigator.pop(context);
       },
-      icon: const Icon(Icons.arrow_back_ios_new_outlined),
+      icon: const Icon(Icons.arrow_back_ios_new_outlined,color: Colors.white,),
     ),
-  title: Text(text),
+  title: Text(text,
+  style: const TextStyle(
+    color: Colors.white,
+  ),
+  ),
 );
 
 Color kPrimaryColor=const Color(0xff2B475E);

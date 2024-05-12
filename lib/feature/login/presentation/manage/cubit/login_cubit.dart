@@ -1,5 +1,7 @@
 import 'package:e_commerce/core/utils/api_service.dart';
+import 'package:e_commerce/core/utils/components.dart';
 import 'package:e_commerce/feature/login/data/model/login_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login_states.dart';
@@ -13,9 +15,11 @@ class LoginCubit extends Cubit<LoginStates>
   void userLogin({
   required String email,
     required String password,
+    required context,
 })
   {
     emit(LoginLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
         url: 'login',
       data: {

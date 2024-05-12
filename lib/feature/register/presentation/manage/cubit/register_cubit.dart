@@ -2,6 +2,7 @@ import 'package:e_commerce/core/utils/api_service.dart';
 import 'package:e_commerce/feature/register/data/model/register_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/components.dart';
 import 'register_states.dart';
 
 class RegisterCubit extends Cubit<RegisterStates>
@@ -15,9 +16,11 @@ class RegisterCubit extends Cubit<RegisterStates>
     required String password,
     required String name,
     required String phone,
-})
+    required context,
+  })
   {
     emit(RegisterLoadingStates());
+    buildShowLoading(context);
     ApiService.postData(
         url: 'register',
       data: {
