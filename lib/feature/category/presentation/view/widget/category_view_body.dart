@@ -1,5 +1,6 @@
-import 'package:e_commerce/feature/category/presentation/manage/cubit/home_cubit.dart';
-import 'package:e_commerce/feature/category/presentation/manage/cubit/home_states.dart';
+import 'package:e_commerce/core/errors/custom_error.dart';
+import 'package:e_commerce/feature/category/presentation/manage/cubit/category_cubit.dart';
+import 'package:e_commerce/feature/category/presentation/manage/cubit/category_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'grid_view_item.dart';
@@ -19,7 +20,7 @@ class CategoryViewBody extends StatelessWidget {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 1 / 1,
+                childAspectRatio: 1 / 1.1,
                 mainAxisSpacing: 15,
                 crossAxisSpacing: 15,
               ),
@@ -30,7 +31,7 @@ class CategoryViewBody extends StatelessWidget {
           );
         }
         else if (state is CategoryErrorStates) {
-          return Text(state.error);
+          return CustomError(text: state.error);
         }
         else {
           return const Center(child: CircularProgressIndicator());

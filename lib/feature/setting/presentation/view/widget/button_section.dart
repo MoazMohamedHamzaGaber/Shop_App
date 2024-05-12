@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce/feature/setting/presentation/manage/cubit/setting_cubit.dart';
 import 'package:e_commerce/feature/setting/presentation/manage/cubit/setting_states.dart';
 import 'package:flutter/material.dart';
@@ -12,29 +13,26 @@ class AccountButtonViewSection extends StatelessWidget {
     return BlocConsumer<SettingCubit,SettingStates>(
       listener: (BuildContext context, state) {  },
       builder: (BuildContext context, Object? state) {
-        var cubit = SettingCubit().get(context).profileModel;
-        if(cubit !=null)
-        {
-          profileNameController.text = cubit.data!.name!;
-          profileEmailController.text = cubit.data!.email!;
-          profilePhoneController.text = cubit.data!.phone!;
-        }
         return Padding(
           padding: const EdgeInsets.symmetric(
             vertical: 10,
           ),
-          child: buildMaterialButton(
-            function: () {
-              SettingCubit().get(context).updateProfile(
-                name: profileNameController.text,
-                email: profileEmailController.text,
-                phone: profilePhoneController.text,
-              );
-            },
-            width: 300,
-            text: 'Update Profile',
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.blueGrey,
+          child: ConditionalBuilder(
+            condition: state is! UpdateProfileLoadingStates,
+            builder: (BuildContext context) =>buildMaterialButton(
+              function: () {
+                SettingCubit().get(context).updateProfile(
+                  name: profileNameController.text,
+                  email: profileEmailController.text,
+                  phone: profilePhoneController.text,
+                );
+              },
+              width: 300,
+              text: 'Update Profile',
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.blueGrey,
+            ),
+            fallback: (BuildContext context) =>const Center(child: CircularProgressIndicator()),
           ),
         );
       },

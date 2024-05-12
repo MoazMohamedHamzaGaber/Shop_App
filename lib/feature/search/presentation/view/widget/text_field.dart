@@ -6,7 +6,7 @@ import '../../manage/cubit/search_cubit.dart';
 import '../../manage/cubit/search_states.dart';
 
 class SearchTextField extends StatelessWidget {
-  SearchTextField({Key? key}) : super(key: key);
+  const SearchTextField({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

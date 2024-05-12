@@ -86,7 +86,7 @@ class GridViewItem extends StatelessWidget {
                     width: 180,
                     child: Text(
                       '${model.name}',
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: TextStyle(

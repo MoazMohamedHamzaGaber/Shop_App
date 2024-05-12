@@ -17,7 +17,7 @@ class LayoutViewBody extends StatelessWidget {
         var cubit=LayoutCubit().get(context);
         return Scaffold(
           body: cubit.screens[cubit.currentIndex],
-          bottomNavigationBar: BottomNavBar(),
+          bottomNavigationBar: const BottomNavBar(),
         );
       },
     );

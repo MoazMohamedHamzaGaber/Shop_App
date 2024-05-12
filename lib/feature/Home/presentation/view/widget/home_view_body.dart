@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
         child:  Column(
           children:  [
             TextAndTextFieldSection(),
-             GridViewScreen(),
+            GridViewScreen(),
           ],
         ),
       ),

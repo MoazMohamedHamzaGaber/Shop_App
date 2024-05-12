@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/utils/components.dart';
 import 'package:e_commerce/core/utils/constant.dart';
 import 'package:e_commerce/core/utils/shared_preference.dart';
 import 'package:e_commerce/feature/layout/presentation/view/layout_view.dart';
@@ -27,25 +28,30 @@ class LoginViewBody extends StatelessWidget {
             SharedPreference.saveData(
               key: 'token',
               value: state.loginModel.data!.token,
-            ).then((value) => {
-              token=state.loginModel.data!.token!,
-              navigateAndFinish(context,  LayoutView())
+            ).then((value) =>
+            {
+              token = state.loginModel.data!.token!,
+              navigateAndFinish(context, LayoutView())
             });
-            showToast(
-                text: state.loginModel.message,
-                color: Colors.green,
-            );
+            showToast(text: state.loginModel.message, color: Colors.green);
+            loginEmailController.clear();
+            loginPasswordController.clear();
           } else {
-            showToast(
-              text: state.loginModel.message,
-              color: Colors.red,
+            Navigator.pop(context);
+            buildShowDialog(
+              context: context,
+              image: 'assets/images/warning.png',
+              name: state.loginModel.message,
+              function: (){
+                Navigator.pop(context);
+              },
             );
           }
         }
       },
       builder: (BuildContext context, Object? state) {
         return CustomScrollView(
-          physics: const BouncingScrollPhysics(),
+          //  physics: const BouncingScrollPhysics(),
           slivers: [
             SliverFillRemaining(
               hasScrollBody: false,
@@ -54,9 +60,9 @@ class LoginViewBody extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Column(
-                          children: const [
+                          children: [
                             ImageAndTextSection(),
                             SizedBox(
                               height: 30,
